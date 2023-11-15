@@ -2,7 +2,8 @@ abstract class Goal
 {
     public string Name { get; set; }
     protected string _description;
-    protected bool _isComplete { get; set;}
+    protected bool _isComplete;
+    protected int _pointValue;
 
 
 
@@ -10,12 +11,16 @@ abstract class Goal
     {
         // Name = name;
         // _description = description;
-        // _isComplete = false;
+        _isComplete = false;
     }
 
-    abstract public void MarkDone();
+    abstract public int MarkDone();
 
-    
+    public bool IsComplete()
+    {
+        return _isComplete;
+    }
 
+    abstract public string GetCompletion(string format);
 
 }

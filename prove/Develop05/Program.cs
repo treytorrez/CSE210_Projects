@@ -1,4 +1,6 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
+using Terminal.Gui;
 
 class Program
 {
@@ -6,63 +8,95 @@ class Program
     {
         // Create a list to store all goals
         var goals = new List<Goal>();
-
-        // Print welcome message
-        Console.WriteLine("Welcome to the goal tracker!");
-        StartMenu();
-
-    }
-
-    static void StartMenu()
-    {
-        string CurrentPage = "main";
-        while (CurrentPage != "exit")
+        // Make dummy goals for testing; give each a name
+        for (int i = 1; i <= 10; i++)
         {
-            switch (CurrentPage)
-            {
-                case "main":
-                    // make imp
-                    Console.WriteLine("\x1b[1mWhat would you like to do?\x1b[22m");
-                    Console.WriteLine();
-                    Console.WriteLine("Mark a goal as complete (\x1b[1mmark\x1b[22m])");//mark
-                    Console.WriteLine("Remove a goal (\x1b[1mremove\x1b[22m)");//remove
-                    Console.WriteLine("Return to main menu (\x1b[1mmain\x1b[22m)");//main
-                    Console.WriteLine("Clear completed goals (\x1b[1mclear\x1b[22m)");//clear
+            Random rnd = new Random();
 
-                    CurrentPage = Console.ReadLine().ToLower();
-                    break;
-                case "mark":
-                    Console.WriteLine("Functionality not yet implemented.");
-                    System.Console.WriteLine("press enter to continue");
-                    Console.ReadLine();
-                    CurrentPage = "view";
-                    break;
-                case "remove":
-                    Console.WriteLine("Functionality not yet implemented.");
-                    Console.WriteLine("press enter to continue");
-                    Console.ReadLine();
-                    CurrentPage = "view";
-                    break;
-                case "clear":
-                    // TODO: ClearCompletedGoals();
-                    Console.WriteLine("Functionality not yet implemented.");
-                    Console.WriteLine("press enter to continue");
-                    Console.ReadLine();
-                    CurrentPage = "view";
-                    break;
-                case "exit":
-                    Environment.Exit(0);
-                    break;
-                default:
-                    Console.WriteLine("Invalid input. Please try again.");
-                    break;
-            }
+            var goal = new FiniteGoal(rnd.Next(50, 60), rnd.Next(1, 100), rnd.Next(1, 49));
+            goal.Name = "Goal " + i;
+            goals.Add(goal);
+            
         }
-    }
+        var GoalsLength = goals.Count;
 
-    void _compactIntTryParse(string input, out int type)
-    {
-        if (int.TryParse(input, out type)) { }
-        else { Console.WriteLine("Invalid input. Please enter a number."); }
+        Console.WriteLine("Welcome to the goal tracker!");
+
+        Application.Init();
+        var top = Application.Top;
+
+        var win = new Window()
+        {
+            X = 0,
+            Y = 0,
+            Width = Dim.Fill(),
+            Height = Dim.Fill() - 1
+        };
+        top.Add(win);
+
+        // Create a scroll view to hold the list of goals
+        var scrollView = new ScrollView()
+        {
+            X = 0,
+            Y = 0,
+            Width = Dim.Fill() - 2,
+            Height = Dim.Fill(),
+            ContentSize = new Size(100, countGoals()),
+            ShowVerticalScrollIndicator = true,
+            ShowHorizontalScrollIndicator = true
+        };
+        win.Add(scrollView);
+
+        // create a list to hold the goal buttons
+        var goalButtons = new List<Button>();
+        for (int i = 0; i < goals.Count; i++)
+        {
+            var button = new Button()
+            {
+                X = 0,
+                Y = i,
+                Width = Dim.Fill(),
+                Height = 1,
+                Text = $"{goals[i].Name} {goals[i].GetCompletion("fraction")}"
+            };
+            // Add marker to indicate completion
+            // if(goals[i].IsComplete()) {button.Text = "[x]" + button.Text;}
+            // else {button.Text = "[ ]" + button.Text;}
+            // Add button to list of buttons
+            button.Clicked += () => 
+            { 
+                goals[i].MarkDone(); 
+                button.Text = $"{goals[i].Name} {goals[i].GetCompletion("fraction")}";
+            };
+            goalButtons.Add(button);
+            scrollView.Add(button);
+        }
+
+
+        var menu = new MenuBar(new MenuBarItem[]
+        {
+            new MenuBarItem("_Exit", "", () => { Environment.Exit(0); })
+        });
+        top.Add(menu);
+
+        Application.Run();
+
+        int countGoals()
+        {
+            GoalsLength = goals.Count;
+            return goals.Count;
+        }
+
+        // DEPRECATED
+        // This function is to make a string that the Terminal.Gui Label can use
+        // string MakeContentString(List <Goal> goals)
+        // {
+        //     string contentString = "";
+        //     foreach (Goal goal in goals)
+        //     {
+        //         contentString += goal.Name + "\n";
+        //     }
+        //     return contentString;
+        // }
     }
 }
