@@ -51,6 +51,7 @@ class Program
         var goalButtons = new List<Button>();
         for (int i = 0; i < goals.Count; i++)
         {
+            int index = i;
             var button = new Button()
             {
                 X = 0,
@@ -65,8 +66,8 @@ class Program
             // Add button to list of buttons
             button.Clicked += () => 
             { 
-                goals[i].MarkDone(); 
-                button.Text = $"{goals[i].Name} {goals[i].GetCompletion("fraction")}";
+                goals[index].MarkDone(); 
+                button.Text = $"{goals[index].Name} {goals[index].GetCompletion("fraction")}";
             };
             goalButtons.Add(button);
             scrollView.Add(button);

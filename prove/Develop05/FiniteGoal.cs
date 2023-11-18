@@ -32,7 +32,7 @@ class FiniteGoal : Goal
     }
 
    // I don't think this will have any use outside of testing but it was easy to make so I did
-    public void MarkDone(bool DontAddPointsFlag)
+    public void MarkDone(bool DontAddPoints)
     {
         if (_timesCompleted < _timesToComplete)
         {
