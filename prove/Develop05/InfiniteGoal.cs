@@ -9,6 +9,10 @@ class InfiniteGoal : Goal
         name = Name;
         description = _description;   
     }
+    public InfiniteGoal()
+    {
+        
+    }
     public override int MarkDone()
     {
         return _pointValue;
