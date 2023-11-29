@@ -1,0 +1,92 @@
+[
+{
+  "TimesToComplete": 5,
+  "Name": "Goal 0",
+  "Description": null,
+  "_isComplete": false,
+  "_pointValue": 0,
+  "_timesCompleted": 0,
+  "GoalType": "FiniteGoal"
+},
+{
+  "TimesToComplete": 5,
+  "Name": "Goal 1",
+  "Description": null,
+  "_isComplete": false,
+  "_pointValue": 0,
+  "_timesCompleted": 1,
+  "GoalType": "FiniteGoal"
+},
+{
+  "TimesToComplete": 5,
+  "Name": "Goal 2",
+  "Description": null,
+  "_isComplete": false,
+  "_pointValue": 0,
+  "_timesCompleted": 2,
+  "GoalType": "FiniteGoal"
+},
+{
+  "TimesToComplete": 5,
+  "Name": "Goal 3",
+  "Description": null,
+  "_isComplete": false,
+  "_pointValue": 0,
+  "_timesCompleted": 3,
+  "GoalType": "FiniteGoal"
+},
+{
+  "TimesToComplete": 5,
+  "Name": "Goal 4",
+  "Description": null,
+  "_isComplete": false,
+  "_pointValue": 0,
+  "_timesCompleted": 4,
+  "GoalType": "FiniteGoal"
+},
+{
+  "TimesToComplete": 5,
+  "Name": "Goal 5",
+  "Description": null,
+  "_isComplete": true,
+  "_pointValue": 0,
+  "_timesCompleted": 5,
+  "GoalType": "FiniteGoal"
+},
+{
+  "TimesToComplete": 5,
+  "Name": "Goal 6",
+  "Description": null,
+  "_isComplete": false,
+  "_pointValue": 0,
+  "_timesCompleted": 0,
+  "GoalType": "FiniteGoal"
+},
+{
+  "TimesToComplete": 5,
+  "Name": "Goal 7",
+  "Description": null,
+  "_isComplete": false,
+  "_pointValue": 0,
+  "_timesCompleted": 0,
+  "GoalType": "FiniteGoal"
+},
+{
+  "TimesToComplete": 5,
+  "Name": "Goal 8",
+  "Description": null,
+  "_isComplete": false,
+  "_pointValue": 0,
+  "_timesCompleted": 0,
+  "GoalType": "FiniteGoal"
+},
+{
+  "TimesToComplete": 5,
+  "Name": "Goal 9",
+  "Description": null,
+  "_isComplete": false,
+  "_pointValue": 0,
+  "_timesCompleted": 0,
+  "GoalType": "FiniteGoal"
+}
+]

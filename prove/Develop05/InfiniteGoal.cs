@@ -1,19 +1,18 @@
+using System.Text.Json;
 
 class InfiniteGoal : Goal
 {
-    private int _count;
-    private int _amountDone;
     
     public InfiniteGoal(string name, string description) 
     {
         name = Name;
-        description = _description;   
+        description = Description;   
     }
     public InfiniteGoal()
     {
         
     }
-    public override int MarkDone()
+    public override int AddCompletion()
     {
         return _pointValue;
     }
