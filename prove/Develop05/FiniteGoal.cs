@@ -9,7 +9,7 @@ class FiniteGoal : Goal
     {
         
     }
-    public FiniteGoal(int timesToComplete, int bonusAmount, int timesCompleted=0)
+    public FiniteGoal(int timesToComplete, int bonusAmount=10, int timesCompleted=0)
     {
         TimesToComplete = timesToComplete;
         _bonusAmount = bonusAmount;
@@ -22,6 +22,7 @@ class FiniteGoal : Goal
         if (_timesCompleted < TimesToComplete)
         {
             _timesCompleted++;
+            pointsEarned += _pointValue;
             
         }
         if (_timesCompleted >= TimesToComplete)
@@ -33,6 +34,7 @@ class FiniteGoal : Goal
     }
 
    // I don't think this will have any use outside of testing but it was easy to make so I did
+    // TODO: I'M LIKE 95 PERCENT SURE THIS ISN'T USED ANYWHERE AND THE NAMING IS CONFUSING
     public void MarkDone(bool DontAddPoints)
     {
         if (_timesCompleted < TimesToComplete)
@@ -67,11 +69,4 @@ class FiniteGoal : Goal
         return completion;
 
     }
-    // override public string Serialize()
-    // {
-    //     // serialize the goal into JSON
-    //     var json = JsonSerializer.Serialize(this);
-    //     return json;
-    // }
-
 }

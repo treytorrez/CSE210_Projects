@@ -14,10 +14,11 @@ class InfiniteGoal : Goal
     }
     public override int AddCompletion()
     {
+        _timesCompleted++;
         return _pointValue;
     }
     override public string GetCompletion(string format)
     {
-        return "Infinite";
+        return $"{_timesCompleted}";
     }
 }
