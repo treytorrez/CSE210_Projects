@@ -3,31 +3,33 @@ using System.Text.Json.Serialization;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 // NOTE: I am using 2 different JSON libraries this is NOT a good idea and I should probably fix it
-//HOWEVER, functions should(mostly) use one or the other so it shouldn't be a *huge* issue
+//HOWEVER, functions should(mostly) use one or the other so it shouldn't be a *huge* issue 
 
 static class Data
 {
 
 
     // Save goals as JSON to a specified location
-    static public void SaveJSON(string location, List<Goal> goals)
+    static public void SaveJSON(string location, List<Goal> goals, int points)
     {
         var jsonObj = new JObject
         {
-            ["points"] = FetchProfilePoints(location),
+            ["points"] = points,
             ["goals"] = JArray.FromObject(goals)
         };
 
         File.WriteAllText(location, jsonObj.ToString());
     }
     // Load goals from a JSON file at a specified location
-    static public List<Goal> LoadJSON(string location)
+    static public (List<Goal>, int) LoadJSON(string location)
     {
         // Read the JSON, parse it, and get the root element
         string json = File.ReadAllText(location);
         JsonDocument doc = JsonDocument.Parse(json);
         JsonElement root = doc.RootElement;
 
+        // Get the points value from the JSON
+        int points = root.GetProperty("points").GetInt32();
 
         // Set array to the list of JSON goal objects and convert to string
         JsonElement array = root.GetProperty("goals");
@@ -39,7 +41,7 @@ static class Data
 
         List<Goal> goals = JsonSerializer
             .Deserialize<List<Goal>>(arrayJson, settings);
-        return goals;
+        return (goals, points);
     }
 
     // Custom JSON converter for the Goal class
@@ -101,11 +103,9 @@ static class Data
         Console.WriteLine("Where are your goals stored? (default for default location)");
         while (true)
         {
-            // var locations = Console.ReaLine();
             // I have absolutely zero clue why but whenever I run `Console.ReadLine()` I have to press enter twice for the input to actiually be read.
+            var location = Console.ReadLine();
             // after pressing enter the first time it moves the cursor to the next line and then I have to press enter again for it to actually read the input. 
-            // setting it to the default for now
-            var location = defaultLocation;
             Debug.WriteLine($"You entered :{location}");
             if (location == "default")
             {
@@ -129,21 +129,22 @@ static class Data
         int points = (int)jsonObj["points"];
         return points;
     }
-    static public void UpdateExternalPointValue(int points, string location)
-    {
-        // Read the current points value from the goals.json file
-        var jsonRawText = File.ReadAllText(location);
-        // I could leave it in the file and add a direct file path but I'd rather not
-        var jsonObj = JObject.Parse(jsonRawText);
-        int filePoints = (int)jsonObj["points"];
+    // TODO: This is depreceated because it does not fit the assignment requrements. remove at subission
+    // static public void UpdateExternalPointValue(int points, string location)
+    // {
+    //     // Read the current points value from the goals.json file
+    //     var jsonRawText = File.ReadAllText(location);
+    //     // I could leave it in the file and add a direct file path but I'd rather not
+    //     var jsonObj = JObject.Parse(jsonRawText);
+    //     int filePoints = (int)jsonObj["points"];
 
-        // Add the points amount to the current points value
-        int updatedPoints = filePoints + points;
+    //     // Add the points amount to the current points value
+    //     int updatedPoints = filePoints + points;
 
-        // Update the points value in the goals.json file
-        jsonObj["points"] = updatedPoints;
-        File.WriteAllText(location, jsonObj.ToString());
-    }
+    //     // Update the points value in the goals.json file
+    //     jsonObj["points"] = updatedPoints;
+    //     File.WriteAllText(location, jsonObj.ToString());
+    // }
     static public (int, int, float) CalcLevelAndPoints(float points)
     {
 

@@ -11,9 +11,7 @@ abstract class Goal
 
     public  int _timesCompleted { get; set;}
     public string GoalType { get;}
-
-
-
+    
     public Goal()
     {
         // Name = name;

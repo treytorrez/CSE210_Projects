@@ -3,7 +3,7 @@ using System.Text.Json;
 class FiniteGoal : Goal
 {
     public int TimesToComplete { get; set;}
-    private int _bonusAmount;
+    public int _bonusAmount { get; set;}
 
     public FiniteGoal()
     {

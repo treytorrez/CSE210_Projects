@@ -1,4 +1,3 @@
-
 class Program
 {
     static void Main()
@@ -7,7 +6,8 @@ class Program
         // Create a list to store all goals
         var goals = new List<Goal>();
 
-        string location = Data.FindJSON();
-        GuiHandler gui = new(goals, location);
+        // string location = Data.FindJSON();
+        // GuiHandler gui = new(goals, location);
+        GuiHandler gui = new();
     }
 }

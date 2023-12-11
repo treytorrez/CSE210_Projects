@@ -1,8 +1,9 @@
 {
-  "points": 574,
+  "points": 16,
   "goals": [
     {
       "TimesToComplete": 5,
+      "_bonusAmount": 0,
       "Name": "Goal 0",
       "Description": null,
       "_isComplete": false,
@@ -12,6 +13,7 @@
     },
     {
       "TimesToComplete": 5,
+      "_bonusAmount": 0,
       "Name": "Goal 1",
       "Description": null,
       "_isComplete": false,
@@ -21,6 +23,7 @@
     },
     {
       "TimesToComplete": 5,
+      "_bonusAmount": 0,
       "Name": "Goal 2",
       "Description": null,
       "_isComplete": false,
@@ -30,51 +33,57 @@
     },
     {
       "TimesToComplete": 5,
+      "_bonusAmount": 0,
       "Name": "Goal 3",
       "Description": null,
       "_isComplete": false,
       "_pointValue": 3,
-      "_timesCompleted": 4,
+      "_timesCompleted": 0,
       "GoalType": "FiniteGoal"
     },
     {
       "TimesToComplete": 5,
+      "_bonusAmount": 0,
       "Name": "Goal 4",
       "Description": null,
       "_isComplete": false,
       "_pointValue": 4,
-      "_timesCompleted": 4,
+      "_timesCompleted": 0,
       "GoalType": "FiniteGoal"
     },
     {
       "TimesToComplete": 5,
+      "_bonusAmount": 0,
       "Name": "Goal 5",
       "Description": null,
       "_isComplete": true,
       "_pointValue": 5,
-      "_timesCompleted": 5,
+      "_timesCompleted": 1,
       "GoalType": "FiniteGoal"
     },
     {
       "TimesToComplete": 5,
+      "_bonusAmount": 0,
       "Name": "Goal 6",
       "Description": null,
       "_isComplete": false,
       "_pointValue": 0,
-      "_timesCompleted": 3,
+      "_timesCompleted": 0,
       "GoalType": "FiniteGoal"
     },
     {
       "TimesToComplete": 5,
+      "_bonusAmount": 0,
       "Name": "Goal 7",
       "Description": null,
       "_isComplete": false,
       "_pointValue": 0,
-      "_timesCompleted": 3,
+      "_timesCompleted": 0,
       "GoalType": "FiniteGoal"
     },
     {
       "TimesToComplete": 5,
+      "_bonusAmount": 0,
       "Name": "Goal 8",
       "Description": null,
       "_isComplete": false,
@@ -87,7 +96,7 @@
       "Description": null,
       "_isComplete": false,
       "_pointValue": 10,
-      "_timesCompleted": 5,
+      "_timesCompleted": 0,
       "GoalType": "InfiniteGoal"
     },
     {
@@ -95,31 +104,33 @@
       "Description": null,
       "_isComplete": false,
       "_pointValue": 1,
-      "_timesCompleted": 100,
+      "_timesCompleted": 0,
       "GoalType": "InfiniteGoal"
     },
     {
       "TimesToComplete": 5,
+      "_bonusAmount": 0,
       "Name": "AddedGoal",
       "Description": "First Added Goal!",
       "_isComplete": false,
       "_pointValue": 100,
-      "_timesCompleted": 1,
+      "_timesCompleted": 0,
       "GoalType": "FiniteGoal"
     },
     {
       "Name": "checklist goal???",
       "Description": "wow such checklist",
-      "_isComplete": true,
+      "_isComplete": false,
       "_pointValue": 0,
-      "_timesCompleted": 1,
+      "_timesCompleted": 0,
       "GoalType": "SingleGoal"
     },
     {
       "TimesToComplete": 0,
+      "_bonusAmount": 0,
       "Name": "Goal Name",
       "Description": "Description",
-      "_isComplete": true,
+      "_isComplete": false,
       "_pointValue": 9,
       "_timesCompleted": 0,
       "GoalType": "FiniteGoal"
